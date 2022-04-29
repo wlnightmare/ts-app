@@ -8,7 +8,7 @@ import { ShopState } from "../types/shopTypes";
 import { Basket } from "../components/shop/Basket";
 
 export const ShopPage:FC = () => {
-    const {products} = useTypedSelector((state) => state.shop as ShopState)
+    const {products} = useTypedSelector((state) => state.shop)
     const {fetchProducts, addToBasket} = useDispatchActions()
 
     useEffect(()=>{

@@ -6,12 +6,15 @@ const initState:ShopState = {
   basket: JSON.parse(localStorage.getItem('products') || '[]')||[],
   modalOpen: false,
 }
-export const shopReducer  = (state = initState, action: ShopAction) => {
+export const shopReducer:Reducer<ShopState, ShopAction>  = (state = initState, action) => {
   switch (action.type) {
     case ShopActionType.SET_PRODUCTS:
       return {...state, products:action.payload}
     case ShopActionType.ADD_TO_BASKET:
       const item = state.products.find((product)=>product.id === action.payload)
+      if(!item) {
+        return state;
+      }
       const inBasket = state.basket.find((item)=>item.id === action.payload ? true: false)
       return {
         ...state,

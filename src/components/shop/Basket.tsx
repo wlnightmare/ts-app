@@ -9,7 +9,7 @@ import { ShopState } from "../../types/shopTypes";
 
 export function Basket() {
     const [isOpen, setIsOpen] = useState(false)
-    const {basket} = useTypedSelector((state) => state.shop as ShopState)
+    const {basket} = useTypedSelector((state) => state.shop)
     
     const amount = useMemo(()=>
       basket.reduce((acc, product) => acc + product.count, 0
