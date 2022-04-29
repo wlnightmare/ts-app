@@ -4,11 +4,10 @@ import { useTypedSelector} from "../hooks/useTypedSelector";
 import { ProductBlock } from "../components/shop/ProductBlock";
 import { useDispatchActions } from "../hooks/useDispatchActions";
 import { FC, useCallback, useEffect } from "react";
-import { ShopState } from "../types/shopTypes";
 import { Basket } from "../components/shop/Basket";
 
 export const ShopPage:FC = () => {
-    const {products} = useTypedSelector((state) => state.shop)
+    const products = useTypedSelector((state) => state.shop.products)
     const {fetchProducts, addToBasket} = useDispatchActions()
 
     useEffect(()=>{

@@ -1,6 +1,4 @@
-import { applyMiddleware, combineReducers, createStore } from 'redux';
-import {composeWithDevTools} from "redux-devtools-extension";
-import thunk from "redux-thunk";
+import { combineReducers } from 'redux';
 import { shopReducer } from './reducers/shopReducer';
 import {configureStore} from '@reduxjs/toolkit'
 
