@@ -22,16 +22,27 @@ export const removeFromBasket = (id:number) => (dispatch:Dispatch<ShopAction>) =
   })
 }
 
-export const incrementProduct = (id:number, count:number) => (dispatch:Dispatch<ShopAction>) => {
+export const incrementProduct = (id:number) => (dispatch:Dispatch<ShopAction>) => {
   dispatch({
     type: ShopActionType.INCREMENT_PRODUCT_QUANTITY,
-    payload: {id, count}
+    payload: id
   })
 }
 
-export const decrementProduct = (id:number, count:number) => (dispatch:Dispatch<ShopAction>) => {
+export const decrementProduct = (id:number) => (dispatch:Dispatch<ShopAction>) => {
   dispatch({
     type:ShopActionType.DECREMENT_PRODUCT_QUANTITY,
-    payload: {id, count}
+    payload: id
+  })
+}
+export const openModalForm = () => (dispatch:Dispatch<ShopAction>) =>{
+  dispatch({
+    type: ShopActionType.OPEN_MODAL,
+  })
+}
+
+export const closeModalForm = () => (dispatch:Dispatch<ShopAction>)=>{
+  dispatch({
+    type: ShopActionType.CLOSE_MODAL,
   })
 }
