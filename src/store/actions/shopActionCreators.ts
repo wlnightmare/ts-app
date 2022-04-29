@@ -1,6 +1,6 @@
 import axios from "axios";
 import { Dispatch } from "redux";
-import { Product, ShopAction, ShopActionType } from "../../types/shopTypes";
+import { BasketItem, Product, ShopAction, ShopActionType } from "../../types/shopTypes";
 
 export const fetchProducts = () => (dispatch: Dispatch<ShopAction>) => {
   axios.get<Product[]>('https://fakestoreapi.com/products').then((res)=>{
@@ -11,7 +11,7 @@ export const fetchProducts = () => (dispatch: Dispatch<ShopAction>) => {
 export const addToBasket = (id:number) => (dispatch:Dispatch<ShopAction>) => {
   dispatch({
       type: ShopActionType.ADD_TO_BASKET,
-      payload: id
+      payload: id,
   })
 }
 

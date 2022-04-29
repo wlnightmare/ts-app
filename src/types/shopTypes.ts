@@ -22,7 +22,6 @@ export type BasketItem = Product &{
 export type ShopState = {
   products: Product[],
   basket: BasketItem[],
-  counter: number,
   modalOpen: boolean,
 } 
 

@@ -1,5 +1,5 @@
 import {Container, Grid} from "@mui/material";
-// import {addToBasket, fetchProducts} from "../store/actions/shopActions";
+import {addToBasket, fetchProducts} from "../store/actions/shopActions";
 // import { OrderFormModal } from "../components/shop/OrderFormModal";
 import { useTypedSelector} from "../hooks/useTypedSelector";
 import { ProductBlock } from "../components/shop/ProductBlock";
@@ -7,17 +7,18 @@ import { ProductBlock } from "../components/shop/ProductBlock";
 // import {receivedProducts} from "../store/reducers/productsSlice"
 import { useDispatchActions } from "../hooks/useDispatchActions";
 import { useCallback, useEffect } from "react";
+import { BasketItem } from "../types/shopTypes";
 
 export const ShopPage = () => {
-    const {products} = useTypedSelector(state => state.shop)
+    const {products} = useTypedSelector((state) => state.shop)
     const {fetchProducts, addToBasket} = useDispatchActions()
 
     useEffect(()=>{
         fetchProducts()
     },[fetchProducts])
 
-    const handleAddToBasket = useCallback((product:number)=>{
-        addToBasket(product)
+    const handleAddToBasket = useCallback((id:number)=>{
+        addToBasket(id)
     },[addToBasket])
 
     return (
