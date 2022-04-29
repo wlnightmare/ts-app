@@ -42,11 +42,18 @@ export type RemoveToBasketAction = {
 
 export type IncrementProductAction = {
   type: ShopActionType.INCREMENT_PRODUCT_QUANTITY,
-  payload: {id:number, count:number},
+  payload: number,
 }
 export type DecrementProductAction = {
   type: ShopActionType.DECREMENT_PRODUCT_QUANTITY,
-  payload: {id:number, count:number},
+  payload: number,
 }
 
-export type ShopAction = SetProductAction | AddToBasketAction | RemoveToBasketAction | IncrementProductAction | DecrementProductAction
+export type OpenModal = {
+  type: ShopActionType.OPEN_MODAL,
+}
+export type CloseModal = {
+  type: ShopActionType.CLOSE_MODAL,
+}
+
+export type ShopAction = SetProductAction | AddToBasketAction | RemoveToBasketAction | IncrementProductAction | DecrementProductAction | OpenModal | CloseModal
