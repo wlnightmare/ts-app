@@ -15,7 +15,7 @@ export const ProductBlock:FC<Props>=({product, onAddToBasket}) =>{
             <Description>{product.description}</Description>
             <div style={{display:'flex', justifyContent:'space-between'}}>
             <Price>{product.price}$</Price>
-            <StyledButton onClick={onAddToBasket}>Add to Basket</StyledButton>
+            <StyledButton onClick={()=>onAddToBasket()}>Add to Basket</StyledButton>
             </div>
         </StyledBox>
     )
