@@ -11,12 +11,12 @@ export type Product = {
   id: number,
   title: string,
   price: number,
-  category: string,
+  category?: string | undefined,
   description: string,
-  image: string  
+  image: string,
 }
-export type BasketItem = Product &{
-  count: number,
+export type BasketItem = Product & {
+  count: number
 }
 
 export type ShopState = {

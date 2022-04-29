@@ -1,15 +1,12 @@
 import {Container, Grid} from "@mui/material";
-import {addToBasket, fetchProducts} from "../store/actions/shopActions";
 // import { OrderFormModal } from "../components/shop/OrderFormModal";
 import { useTypedSelector} from "../hooks/useTypedSelector";
 import { ProductBlock } from "../components/shop/ProductBlock";
 // import { Basket } from "../components/Basket";
-// import {receivedProducts} from "../store/reducers/productsSlice"
 import { useDispatchActions } from "../hooks/useDispatchActions";
-import { useCallback, useEffect } from "react";
-import { BasketItem } from "../types/shopTypes";
+import { FC, useCallback, useEffect } from "react";
 
-export const ShopPage = () => {
+export const ShopPage:FC = () => {
     const {products} = useTypedSelector((state) => state.shop)
     const {fetchProducts, addToBasket} = useDispatchActions()
 

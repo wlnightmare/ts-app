@@ -3,10 +3,10 @@ import { ShopAction, ShopState, ShopActionType} from "../../types/shopTypes"
 
 const initState:ShopState = {
   products: [],
-  basket: [],
+  basket: JSON.parse(localStorage.getItem('products') || '[]')||[],
   modalOpen: false,
 }
-export const shopReducer = (state = initState, action:ShopAction) => {
+export const shopReducer  = (state = initState, action: ShopAction) => {
   switch (action.type) {
     case ShopActionType.SET_PRODUCTS:
       return {...state, products:action.payload}
@@ -20,7 +20,7 @@ export const shopReducer = (state = initState, action:ShopAction) => {
             {  ...item, count: item.count+1}
             : item
           )
-          :[...state.basket, {...item, count: 1}],
+          :[...state.basket, {...item, count:1}],
       }
     case ShopActionType.REMOVE_FROM_BASKET:
       return {

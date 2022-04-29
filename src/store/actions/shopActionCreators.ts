@@ -1,6 +1,6 @@
 import axios from "axios";
 import { Dispatch } from "redux";
-import { BasketItem, Product, ShopAction, ShopActionType } from "../../types/shopTypes";
+import { Product, ShopAction, ShopActionType } from "../../types/shopTypes";
 
 export const fetchProducts = () => (dispatch: Dispatch<ShopAction>) => {
   axios.get<Product[]>('https://fakestoreapi.com/products').then((res)=>{
