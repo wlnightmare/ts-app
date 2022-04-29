@@ -1,16 +1,15 @@
 import {Button, Drawer, Divider, Badge} from "@mui/material";
-import React, {useCallback, useMemo, useState} from "react";
-import {useDispatch, useSelector} from "react-redux";
-import { removeFromBasket, incrementProduct, decrementProduct, openModalForm } from "../../store/actions/shopActionCreators";
+import {FC, useCallback, useMemo, useState} from "react";
 import { BasketItem } from "./BasketItem";
 import { BasketIcon, Check, CheckSection, CloseButton, EmptyBasket, HeaderSection, HeadTitle, StyledBox, Wrapper } from "../../styledConsts/BasketStyled";
 import { useTypedSelector } from "../../hooks/useTypedSelector";
-import { ShopState } from "../../types/shopTypes";
+import { useDispatchActions } from "../../hooks/useDispatchActions";
 
-export function Basket() {
+export const Basket: FC=() =>{
     const [isOpen, setIsOpen] = useState(false)
     const {basket} = useTypedSelector((state) => state.shop)
-    
+    const {removeFromBasket, incrementProduct, decrementProduct, openModalForm } = useDispatchActions()
+    //const isOpen = useTypedSelector((state)=>state.shop.modalOpen)
     const amount = useMemo(()=>
       basket.reduce((acc, product) => acc + product.count, 0
     ), [basket])
@@ -19,10 +18,8 @@ export function Basket() {
       basket.reduce((acc,product) => acc + product.count * product.price, 0
     ), [basket])
 
-    const dispatch = useDispatch()
-
-    const handleRemoveFromBasket = useCallback((e:React.FormEvent, id:number) => {
-      e.stopPropagation();
+    const handleRemoveFromBasket = useCallback((id:number) => {
+      
       removeFromBasket(id)
     }, [removeFromBasket])
 
@@ -61,9 +58,9 @@ export function Basket() {
             {basket.map((product) => (
               <BasketItem
                 product={product}
-                onRemove={()=>handleRemoveFromBasket}
-                onIncrementProduct={()=>handleIncrementProduct}
-                onDecrementProduct={()=>handleDecrementProduct}
+                onRemove={()=> handleRemoveFromBasket(product.id)}
+                onIncrementProduct={()=>handleIncrementProduct(product.id)}
+                onDecrementProduct={()=>handleDecrementProduct(product.id)}
                 key={product.id}
                 count={product.count}
               />

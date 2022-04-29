@@ -26,10 +26,10 @@ export const BasketItem:FC<Props>=({ product, onRemove, onIncrementProduct,onDec
       <Bottom>
       <h3 style={{fontSize: "16px",fontWeight: "600", paddingLeft:'10px'}}>{product.price}$ </h3>
       <ProductCounter>
-        <Button style={{cursor:"pointer", color:"rgb(0,0,0)"}} onClick={()=>onIncrementProduct}>+</Button>
+        <Button style={{cursor:"pointer", color:"rgb(0,0,0)"}} onClick={()=>onIncrementProduct()}>+</Button>
         <p>{count}</p>
-        <Button style={{cursor:"pointer", color:"rgb(0,0,0)"}} onClick={()=>onDecrementProduct}>-</Button>
-        <Button onClick={()=>onRemove}>Delete</Button>
+        <Button style={{cursor:"pointer", color:"rgb(0,0,0)"}} onClick={()=>onDecrementProduct()}>-</Button>
+        <Button onClick={()=>onRemove()}>Delete</Button>
       </ProductCounter>
       </Bottom>
     </ProductBlock>
