@@ -57,3 +57,12 @@ export type CloseModal = {
 }
 
 export type ShopAction = SetProductAction | AddToBasketAction | RemoveToBasketAction | IncrementProductAction | DecrementProductAction | OpenModal | CloseModal
+
+export type FormValues = {
+  name: string,
+  phone: string,
+  email: string,
+  comment: string,
+  city?: number,
+}
+

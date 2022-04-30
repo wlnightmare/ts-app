@@ -1,10 +1,10 @@
 import {Container, Grid} from "@mui/material";
-// import { OrderFormModal } from "../components/shop/OrderFormModal";
 import { useTypedSelector} from "../hooks/useTypedSelector";
 import { ProductBlock } from "../components/shop/ProductBlock";
 import { useDispatchActions } from "../hooks/useDispatchActions";
 import { FC, useCallback, useEffect } from "react";
 import { Basket } from "../components/shop/Basket";
+import { OrderFormModal } from "../components/shop/OrderFormModal";
 
 export const ShopPage:FC = () => {
     const products = useTypedSelector((state) => state.shop.products)
@@ -28,7 +28,7 @@ export const ShopPage:FC = () => {
                 )}
             </Grid>
             <Basket />
-            {/* <OrderFormModal />  */}
+            <OrderFormModal /> 
         </Container>
     )
 }
