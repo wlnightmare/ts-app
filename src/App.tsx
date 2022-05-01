@@ -1,11 +1,12 @@
 import './App.css';
-// import { UserList } from './components/UserList';
-import { ShopPage } from './pages/ShopPage';
+//import { ShopPage } from './pages/ShopPage';
+import { TaskPage } from './pages/TaskPage';
 
 function App() {
   return (
     <div>
-      <ShopPage></ShopPage>
+      {/* <ShopPage></ShopPage> */}
+    <TaskPage/>
     </div>
   );
 }
